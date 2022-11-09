@@ -4,29 +4,24 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm run build --if-present
-      - run: npm test
+      - uses: actions/setup-node@v1
+      - name: Install NPM Dependencies
+        run: npm install
+      - name: NPM run build
+        run: npm run build --if-present
+        run: npm test
         env:
           CI: true
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          args: --acl public-read --follow-symlinks --delete
-        env:
           AWS_S3_BUCKET: ${{ secrets.testbucket11082022 }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AKIAYCPJ7H3EOJ3FPQGE }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: us-east-1
