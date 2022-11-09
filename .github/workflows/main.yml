@@ -29,4 +29,4 @@ jobs:
           AWS_S3_BUCKET: ${{ secrets.testbucket11082022 }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AKIAYCPJ7H3EOJ3FPQGE }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET }}
-          aws-region: us-east-1
+          aws-region: "us-east-1"
