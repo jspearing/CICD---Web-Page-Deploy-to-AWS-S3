@@ -15,7 +15,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           AWS_S3_BUCKET: testbucket11082022
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.my-access-id }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.my-access-key }}
           aws-region: us-east-1
      
