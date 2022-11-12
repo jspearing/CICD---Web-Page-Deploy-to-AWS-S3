@@ -10,7 +10,7 @@ jobs:
       - name: Install NPM Dependencies
         run: npm install
       - name: NPM run build
-        run: npm run build
+        run: npm run build --if-present
       - name: NPM Run Tests
         run: npm test
      

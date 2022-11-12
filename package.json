@@ -10,8 +10,8 @@
   },
   "devDependencies": {},
   "scripts": {
+    "build": "build",
     "test": "jest"
   },
-  "author": "jrw@mit.edu",
   "license": "MIT"
 }
